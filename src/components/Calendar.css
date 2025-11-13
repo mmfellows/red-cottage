@@ -40,6 +40,7 @@
   background-color: white;
   border-radius: 4px;
   border: 1px solid #e0e0e0;
+  position: relative;
 }
 
 .legend-item.clickable {
@@ -91,6 +92,18 @@
   font-style: italic;
   color: #999;
   font-weight: normal;
+}
+
+.edit-icon {
+  flex-shrink: 0;
+  color: #999;
+  margin-left: auto;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.legend-item.clickable:hover .edit-icon {
+  color: #c93d3d;
+  transform: scale(1.1);
 }
 
 .calendar-months {
@@ -231,6 +244,11 @@
     font-size: 0.75rem;
   }
 
+  .edit-icon {
+    width: 16px;
+    height: 16px;
+  }
+
   .calendar-months {
     gap: 1.5rem;
   }
@@ -304,6 +322,11 @@
 
   .date-range {
     font-size: 0.7rem;
+  }
+
+  .edit-icon {
+    width: 14px;
+    height: 14px;
   }
 
   .month-container h3 {
