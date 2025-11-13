@@ -90,11 +90,20 @@ function Calendar({ bookings, userColors, onBookingUpdated }) {
   const getGuestBookings = (guestName) => {
     return bookings
       .filter(booking => booking.guestName === guestName)
-      .map(booking => ({
-        checkIn: new Date(booking.checkIn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-        checkOut: new Date(booking.checkOut).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-        isPossibleStay: booking.isPossibleStay || false
-      }));
+      .map(booking => {
+        // Parse dates as local dates to avoid timezone shifts
+        const [checkInYear, checkInMonth, checkInDay] = booking.checkIn.split('-').map(Number);
+        const [checkOutYear, checkOutMonth, checkOutDay] = booking.checkOut.split('-').map(Number);
+
+        const checkInDate = new Date(checkInYear, checkInMonth - 1, checkInDay);
+        const checkOutDate = new Date(checkOutYear, checkOutMonth - 1, checkOutDay);
+
+        return {
+          checkIn: checkInDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+          checkOut: checkOutDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+          isPossibleStay: booking.isPossibleStay || false
+        };
+      });
   };
 
   // Handle clicking on a guest to edit their booking

@@ -97,10 +97,16 @@ function EditBookingModal({ booking, onClose, onBookingUpdated, userColor }) {
       const conflictResult = await checkForConflicts(checkIn, checkOut);
 
       if (conflictResult.conflict) {
+        // Parse dates as local dates to avoid timezone shifts
+        const [conflictInYear, conflictInMonth, conflictInDay] = conflictResult.details.checkIn.split('-').map(Number);
+        const [conflictOutYear, conflictOutMonth, conflictOutDay] = conflictResult.details.checkOut.split('-').map(Number);
+        const conflictCheckIn = new Date(conflictInYear, conflictInMonth - 1, conflictInDay);
+        const conflictCheckOut = new Date(conflictOutYear, conflictOutMonth - 1, conflictOutDay);
+
         setError(
           `Conflict detected! ${conflictResult.details.guest} has already booked ` +
-          `from ${new Date(conflictResult.details.checkIn).toLocaleDateString()} ` +
-          `to ${new Date(conflictResult.details.checkOut).toLocaleDateString()}`
+          `from ${conflictCheckIn.toLocaleDateString()} ` +
+          `to ${conflictCheckOut.toLocaleDateString()}`
         );
         setLoading(false);
         return;
