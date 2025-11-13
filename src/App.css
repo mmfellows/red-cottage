@@ -53,6 +53,10 @@
 }
 
 @media (max-width: 768px) {
+  .app-header {
+    padding: 1.5rem 1rem;
+  }
+
   .app-header h1 {
     font-size: 1.8rem;
   }
@@ -63,5 +67,28 @@
 
   .app-main {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 1rem 0.75rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+
+  .app-main {
+    padding: 0.75rem;
+  }
+
+  .app-footer {
+    padding: 1rem;
+    font-size: 0.875rem;
   }
 }

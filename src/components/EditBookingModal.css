@@ -218,6 +218,18 @@
 }
 
 @media (max-width: 768px) {
+  .modal-header {
+    padding: 1.25rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .modal-content form {
+    padding: 1.25rem;
+  }
+
   .modal-actions {
     flex-direction: column;
     align-items: stretch;
@@ -235,5 +247,57 @@
 
   .action-buttons {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .close-button {
+    font-size: 1.5rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .modal-content form {
+    padding: 1rem;
+  }
+
+  .modal-content .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .modal-content .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .modal-content .form-group input {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+
+  .delete-button,
+  .cancel-button,
+  .save-button {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .modal-content .checkbox-label {
+    font-size: 0.9rem;
+  }
+
+  .modal-content .checkbox-hint {
+    font-size: 0.8rem;
   }
 }

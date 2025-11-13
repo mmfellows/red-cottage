@@ -115,3 +115,50 @@ button[type="submit"]:disabled {
   color: #666;
   font-weight: normal;
 }
+
+@media (max-width: 768px) {
+  .booking-form {
+    padding: 1.5rem;
+  }
+
+  .booking-form h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-form {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .booking-form h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+
+  button[type="submit"] {
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .checkbox-label {
+    font-size: 0.9rem;
+  }
+
+  .checkbox-hint {
+    font-size: 0.8rem;
+  }
+}
