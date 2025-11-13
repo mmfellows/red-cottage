@@ -260,6 +260,7 @@
 
   .calendar-grid {
     gap: 2px;
+    width: 100%;
   }
 
   .day-header {
@@ -268,6 +269,7 @@
   }
 
   .calendar-day {
+    aspect-ratio: auto;
     min-height: 48px;
     padding: 0.2rem;
   }
@@ -297,6 +299,7 @@
 @media (max-width: 480px) {
   .calendar-container {
     padding: 0.75rem;
+    overflow-x: hidden;
   }
 
   .calendar-container > h2 {
@@ -333,12 +336,19 @@
     height: 14px;
   }
 
+  .month-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   .month-container h3 {
     font-size: 1rem;
   }
 
   .calendar-grid {
     gap: 1px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .day-header {
@@ -347,6 +357,7 @@
   }
 
   .calendar-day {
+    aspect-ratio: auto;
     min-height: 48px;
     padding: 0.15rem;
     font-size: 0;
