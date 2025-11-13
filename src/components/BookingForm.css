@@ -37,6 +37,20 @@
   appearance: none;
 }
 
+.form-group input[type="date"] {
+  background-color: white;
+  color: #333;
+  min-height: 44px;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.form-group input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 .form-group input:focus {
   outline: none;
   border-color: #c93d3d;
@@ -152,6 +166,12 @@ button[type="submit"]:disabled {
     padding: 0.75rem;
     font-size: 16px;
     border-width: 1px;
+  }
+
+  .form-group input[type="date"] {
+    padding: 0.75rem;
+    min-height: 48px;
+    background-color: white;
   }
 
   button[type="submit"] {
