@@ -13,6 +13,13 @@ function BookingForm({ onBookingAdded }) {
   const [loading, setLoading] = useState(false);
   const [conflict, setConflict] = useState(null);
 
+  // Calculate the display year (same logic as Calendar component)
+  const today = new Date();
+  const currentMonth = today.getMonth(); // 0-11
+  const currentYear = today.getFullYear();
+  const displayYear = currentMonth >= 10 ? currentYear + 1 : currentYear;
+  const minDate = `${displayYear}-06-01`; // June 1st of display year
+
   // Check if two date ranges overlap
   const datesOverlap = (start1, end1, start2, end2) => {
     return start1 < end2 && start2 < end1;
@@ -161,6 +168,7 @@ function BookingForm({ onBookingAdded }) {
             id="checkIn"
             value={checkIn}
             onChange={(e) => setCheckIn(e.target.value)}
+            min={minDate}
             disabled={loading}
           />
         </div>
@@ -172,6 +180,7 @@ function BookingForm({ onBookingAdded }) {
             id="checkOut"
             value={checkOut}
             onChange={(e) => setCheckOut(e.target.value)}
+            min={checkIn || minDate}
             disabled={loading}
           />
         </div>

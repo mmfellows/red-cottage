@@ -11,6 +11,13 @@ function EditBookingModal({ booking, onClose, onBookingUpdated, userColor }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Calculate the display year (same logic as Calendar component)
+  const today = new Date();
+  const currentMonth = today.getMonth(); // 0-11
+  const currentYear = today.getFullYear();
+  const displayYear = currentMonth >= 10 ? currentYear + 1 : currentYear;
+  const minDate = `${displayYear}-06-01`; // June 1st of display year
+
   useEffect(() => {
     setGuestName(booking.guestName);
     setCheckIn(booking.checkIn);
@@ -181,6 +188,7 @@ function EditBookingModal({ booking, onClose, onBookingUpdated, userColor }) {
               id="edit-checkIn"
               value={checkIn}
               onChange={(e) => setCheckIn(e.target.value)}
+              min={minDate}
               disabled={loading}
             />
           </div>
@@ -192,6 +200,7 @@ function EditBookingModal({ booking, onClose, onBookingUpdated, userColor }) {
               id="edit-checkOut"
               value={checkOut}
               onChange={(e) => setCheckOut(e.target.value)}
+              min={checkIn || minDate}
               disabled={loading}
             />
           </div>
