@@ -77,7 +77,8 @@
   color: #333;
 }
 
-.modal-content .form-group input {
+.modal-content .form-group input[type="text"],
+.modal-content .form-group input[type="date"] {
   width: 100%;
   padding: 0.75rem;
   border: 2px solid #ddd;
