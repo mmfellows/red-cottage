@@ -186,7 +186,7 @@ function BookingForm({ onBookingAdded }) {
         </div>
 
         <div className="form-group checkbox-group">
-          <label className="checkbox-label">
+          <div className="checkbox-label">
             <input
               type="checkbox"
               checked={isPossibleStay}
@@ -194,7 +194,7 @@ function BookingForm({ onBookingAdded }) {
               disabled={loading}
             />
             <span>Mark as Possible Stay</span>
-          </label>
+          </div>
           <p className="checkbox-hint">Possible stays appear with a dotted outline and lighter color on the calendar</p>
         </div>
 
